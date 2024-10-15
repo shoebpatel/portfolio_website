@@ -1,0 +1,120 @@
+/* xs at least 475px and up*/
+/* @media (min-width: 475px) {} */
+
+/* sm at least 640px and up*/
+/* @media (min-width: 640px) {} */
+
+/* md at least 768px and up*/
+/* @media (min-width: 768px) {} */
+
+/* lg at least 1024px and up*/
+/* @media (min-width: 1024px) {} */
+
+/* xl at least 1280px and up*/
+/* @media (min-width: 1280px) {} */
+
+/* 2xl at least 1536px and up*/
+/* @media (min-width: 1536px) {} */
+
+/* @media (min-width: 475px) -> at least 475px and up, than apply styles */
+
+/* @media (max-width: 475px) -> at most 475px and down, than apply styles */
+
+/* Never use width with percentage for container wrapper*/
+
+/* In CSS the styles defined later in the code will override earlier styles if both are applicable So, the
+   order of the below media queries matters as when xs is shifted to the last, the smaller breakpoint (475px) 
+   would override the larger one (1536px), leading to an incorrect behavior.
+  - On screens larger than 1536px, instead of using the 1536px width, the container would be restricted to 475px, 
+    because the "xs" media query would apply after the "2xl" one.
+  - As the screen size increases the previous smaller screen styles will be overridden by the large screen styles.
+  - Always add media queries at the end.
+*/
+
+.container {
+  width: 100%; /* here, we are using percentage because we are using mobile first approach & 100% will be default for screen smaller than 475px*/
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  /* border: 1px solid red; */
+}
+
+.section {
+  margin-top: 5rem;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: -0.05em;
+  background-color: var(--clr-rose);
+  color: #f1f5f9;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  box-shadow: 0 10px 20px rgba(225, 29, 72, 0.5),
+    0 6px 6px rgba(225, 29, 72, 0.5), 0 0 100px -10px var(--clr-rose);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(225, 29, 72, 0.25),
+    0 10px 10px rgba(225, 29, 72, 0.22), 0 0 120px -10px var(--clr-rose);
+}
+
+.loading {
+  filter: blur(40px) grayscale(100%);
+}
+
+.loaded {
+  filter: blur(0) grayscale(0);
+  transition: 0.7s ease-in-out;
+}
+
+/* xs at least 475px and up*/
+@media (min-width: 475px) {
+  .container {
+    max-width: 475px;
+  }
+}
+
+/* sm at least 640px and up*/
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+/* md at least 768px and up*/
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+/* lg at least 1024px and up*/
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+
+  .section {
+    margin-top: 10rem;
+  }
+}
+
+/* xl at least 1280px and up*/
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* 2xl at least 1536px and up*/
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
